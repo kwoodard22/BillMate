@@ -1,0 +1,31 @@
+<h1>Create your house profile:</h1>
+
+<%= form_for(@house) do |f| %>
+  <% if @house.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+      <ul>
+        <% @house.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%= f.label :name, "House name" %>
+  <%= f.text_field :name %>
+
+  <%= f.fields_for :roommates do |builder| %>
+    <fieldset>
+      <%= builder.label :name %><br>
+      <%= builder.text_field :name %><br><br>
+      <%= builder.label :email %><br>
+      <%= builder.text_field :email %><br><br>
+    </fieldset>
+  <% end %>
+ 
+  <div class="actions">
+    <%= f.submit "Create my house profile" %>
+  </div>
+ 
+<% end %>
