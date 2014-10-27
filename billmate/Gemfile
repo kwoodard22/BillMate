@@ -40,6 +40,10 @@ gem 'devise'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'pry-rails'
+end
+
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
