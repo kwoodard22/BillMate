@@ -1,4 +1,8 @@
+require 'pry'
+
 class HousesController < ApplicationController
+  # before_action :set_house, only: [:show, :edit, :update, :destroy, :roommates]
+  # Took the above from another tutorial and not sure if needed.
   
   def index
     @houses = House.all
@@ -23,6 +27,10 @@ class HousesController < ApplicationController
   def show
   end
 
+  # def roommates
+  #   @house = @user.house
+  # end
+
   def edit
     @house = House.find(params[:id])
   end
@@ -35,7 +43,7 @@ class HousesController < ApplicationController
     end
   end
 
-    def destroy
+  def destroy
 
     if @house.destroy
       redirect_to root_path, notice: "House profile successfully destroyed."  # this essentially redirects to our index page
@@ -47,8 +55,9 @@ class HousesController < ApplicationController
 
   private
 
-    def album_params
-      params.require(:house).permit(:name)
+    def house_params
+      params.require(:house).permit(:name,
+        roommates_attributes: [:name, :email])
     end
 
 end

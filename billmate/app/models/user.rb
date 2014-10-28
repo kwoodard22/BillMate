@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   has_one :house
   # has_many :roommates, through: :house
-
+  
   
 end
