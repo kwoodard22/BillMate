@@ -11,15 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027145719) do
+ActiveRecord::Schema.define(version: 20141028155016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expense_categories", force: true do |t|
+    t.string   "name"
+    t.string   "account_number"
+    t.integer  "phone"
+    t.boolean  "autopay"
+    t.string   "comments"
+    t.boolean  "utility"
+    t.integer  "house_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "houses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "roommates", force: true do |t|

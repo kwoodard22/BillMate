@@ -1,5 +1,3 @@
-require 'pry'
-
 class HousesController < ApplicationController
   # before_action :set_house, only: [:show, :edit, :update, :destroy, :roommates]
   # Took the above from another tutorial and not sure if needed.
@@ -14,6 +12,7 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
+    @house.user_id = current_user.id
 
     respond_to do |format|
       if @house.save
@@ -25,11 +24,8 @@ class HousesController < ApplicationController
   end
 
   def show
+    @house = House.find(params[:id])
   end
-
-  # def roommates
-  #   @house = @user.house
-  # end
 
   def edit
     @house = House.find(params[:id])
@@ -56,8 +52,8 @@ class HousesController < ApplicationController
   private
 
     def house_params
-      params.require(:house).permit(:name,
-        roommates_attributes: [:name, :email])
+      params.require(:house).permit(:name, :user_id,
+        roommates_attributes: [:name, :email, :_destroy])
     end
 
 end

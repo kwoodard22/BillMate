@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @expense_category.name %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @expense_category.account_number %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @expense_category.phone %>
+</p>
+
+<p>
+  <strong>Autopay:</strong>
+  <%= @expense_category.autopay %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @expense_category.comments %>
+</p>
+
+<p>
+  <strong>Utility:</strong>
+  <%= @expense_category.utility %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @expense_category.house_id %>
+</p>
+
+<%= link_to 'Edit', edit_expense_category_path(@expense_category) %> |
+<%= link_to 'Back', expense_categories_path %>

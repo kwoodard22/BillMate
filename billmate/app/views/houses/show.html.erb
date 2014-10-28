@@ -1,0 +1,20 @@
+<% binding.pry %>
+<h1><%= @house.name %> Profile</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House Name:</strong>
+  <%= @house.name %>
+</p>
+
+<p>
+  <strong>Roommates:</strong>
+  <% @house.roommates.each do |roommate| %>
+    <%= roommate.name %>
+    <%= roommate.email %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_house_path(@house) %> |
+<%= link_to 'Back', root_path %>

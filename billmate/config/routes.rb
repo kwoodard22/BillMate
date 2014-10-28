@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :expense_categories
+
   root 'dashboard#index'
   
   resources :houses
