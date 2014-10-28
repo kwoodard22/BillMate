@@ -15,15 +15,7 @@
   <%= f.text_field :name %><br><br>
 
   <h3>Roommates:</h3>
-  <%=f.fields_for :roommates, @house.roommates.build() do |roommate_form| %>
-    <%= roommate_form.label :name %><br>
-    <%= roommate_form.text_field :name %><br><br>
-    <%= roommate_form.label :email %><br>
-    <%= roommate_form.text_field :email %><br><br>
-    <%= roommate_form.hidden_field :_destroy %>
-    <%= link_to "remove", '#', class: "remove_fields" %>
-  <% end %>
- <%= link_to_add_fields "Add Roommate", f, :roommates %><br>
+  <%= link_to_add_fields "Add Roommate", f, :roommates %><br><br>
 
   <div class="actions">
     <%= f.submit "Create my house profile" %>
