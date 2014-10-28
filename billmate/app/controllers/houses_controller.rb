@@ -51,7 +51,9 @@ class HousesController < ApplicationController
 
     def house_params
       params.require(:house).permit(:name, :user_id,
-        roommates_attributes: [:name, :email, :_destroy])
+        roommates_attributes: [:name, :email, :_destroy],
+        expense_categories_attributes: [:name, :account_number,
+          :phone, :autopay, :comments, :utility, :house_id])
     end
 
 end

@@ -21,6 +21,10 @@
   <% end %>
   <%= link_to_add_fields "Add Roommate", f, :roommates %><br><br>
 
+  <h3>Expense Categories:</h3>
+  
+  <%= link_to 'Add Expense Category', new_expense_category_path %><br><br>
+
   <div class="actions">
     <%= f.submit "Create my house profile" %>
   </div>
