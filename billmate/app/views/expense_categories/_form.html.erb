@@ -35,6 +35,9 @@
     <%= f.label :autopay %><br>
     <%= f.check_box :autopay %>
   </div>
+  <div class="field">
+  <%= hidden_field_tag :house_id, current_user.house.id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

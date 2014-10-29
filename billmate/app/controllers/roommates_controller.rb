@@ -9,14 +9,14 @@ class RoommatesController < ApplicationController
   end
 
   def create
-    @roommate = Roommate.new(house_params)
-    @roommate.user_id = current_user.id
+    @roommate = Roommate.new(roommate_params)
+    @roommate.house_id = current_user.house.id
 
     respond_to do |format|
       if @roommate.save
-        format.html { notice: 'Roommates profile was successfully created.' }
+        format.html { redirect_to new_expense_category_path, notice: 'Roommates profile was successfully created.' }
       else
-        format.html { notice: 'Creating roommates profile failed.' }
+        format.html { render :new, notice: 'Creating roommates profile failed.' }
       end
     end
   end
@@ -38,9 +38,9 @@ class RoommatesController < ApplicationController
   end
 
   def destroy
-
+    @roommate = Roommate.find(params[:id])
     if @roommate.destroy
-      redirect_to root_path, notice: "Roommate profile successfully destroyed."  # this essentially redirects to our index page
+      redirect_to edit_house_path(current_user.house.id), notice: "Roommate profile successfully destroyed."  # this essentially redirects to our index page
     else
       render :show
     end

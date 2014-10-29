@@ -2,5 +2,49 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @house %> |
+<h3>Roommates:</h3>
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Email</strong></td>
+  </tr>
+  <% @house.roommates.each do |roommate| %>
+  <tr> 
+    <td><%= roommate.name %></td>
+    <td><%= roommate.email %></td>
+    <td><%= link_to 'Edit', edit_roommate_path(roommate.id) %></td>
+    <td><%= link_to 'Delete', roommate_path(roommate.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table><br>
+<%= link_to 'Add Roommate', new_roommate_path %>
+
+
+<h3>Expense Categories:</h3>
+<table>
+  <tr>
+    <td><strong>Expense Category</strong></td>
+    <td><strong>Account Number</strong></td>
+    <td><strong>Phone Number</strong></td>
+    <td><strong>Utility</strong></td>
+    <td><strong>Autopay</strong></td>
+    <td><strong>Comments</strong></td>
+  </tr>
+  <% @house.expense_categories.each do |expense_category| %>
+  <tr> 
+    <td><%= expense_category.name %></td>
+    <td><%= expense_category.account_number %></td>
+    <td><%= expense_category.phone %></td>
+    <td><%= expense_category.utility %></td>
+    <td><%= expense_category.autopay %></td>
+    <td><%= expense_category.comments %></td>
+    <td><%= link_to 'Edit', edit_expense_category_path(expense_category.id) %></td>
+    <td><%= link_to 'Delete', expense_category_path(expense_category.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table><br>
+
+<%= link_to 'Add Expense Category', new_expense_category_path %><br><br><br>
+
+
 <%= link_to 'Back', house_path(@house) %>

@@ -17,11 +17,12 @@ class ExpenseCategoriesController < ApplicationController
 
   def create
     @expense_category = ExpenseCategory.new(expense_category_params)
+    @expense_category.house_id = current_user.house.id
 
     respond_to do |format|
       if @expense_category.save
-        binding.pry
-        format.html { redirect_to edit_house_path(@user.house.id), notice: 'Successfully created expense category.' }
+    
+        format.html { redirect_to edit_house_path(current_user.house), notice: 'Successfully created expense category.' }
       else
         format.html { render :new, notice: 'Creating expense category failed.' }
       end
@@ -33,7 +34,12 @@ class ExpenseCategoriesController < ApplicationController
   end
 
   def destroy
-    @expense_category.destroy
+    @expense_category = ExpenseCategory.find(params[:id])
+    if @expense_category.destroy
+      redirect_to edit_house_path(current_user.house.id), notice: "Expense category successfully destroyed."  # this essentially redirects to our index page
+    else
+      render :show
+    end
   end
 
   private
