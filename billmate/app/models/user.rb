@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :house
+  # validates :email, uniqueness: true
   # has_many :roommates, through: :house
   
   
