@@ -47,4 +47,5 @@
 <%= link_to 'Add Expense Category', new_expense_category_path %><br><br><br>
 
 
-<%= link_to 'Back', house_path(@house) %>
+<%= link_to 'Back', house_path(current_user.house) %> | 
+<%= link_to 'Dashboard', root_path %>
