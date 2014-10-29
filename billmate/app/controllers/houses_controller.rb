@@ -17,7 +17,7 @@ class HousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        format.html { redirect_to @house, notice: 'Successfully created house profile.' }
+        format.html { redirect_to new_roommate_path, notice: 'Successfully created house profile.' }
       else
         format.html { render :new, notice: 'Creating house profile failed.' }
       end
@@ -51,7 +51,9 @@ class HousesController < ApplicationController
 
     def house_params
       params.require(:house).permit(:name, :user_id,
-        roommates_attributes: [:name, :email, :_destroy])
+        roommates_attributes: [:name, :email, :_destroy],
+        expense_categories_attributes: [:name, :account_number,
+          :phone, :autopay, :comments, :utility, :house_id])
     end
 
 end

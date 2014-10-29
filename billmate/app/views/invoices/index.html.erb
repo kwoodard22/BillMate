@@ -1,0 +1,50 @@
+<h1>Invoices for <%= Date.today.strftime("%B %Y") %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date paid</th>
+      <th>Expense category</th>
+      <th>Amount</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <% if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y") %>
+        <tr>
+          <td><%= invoice.date_paid.strftime("%B %d, %Y") %></td>
+          <td><%= invoice.expense_category.name %></td>
+          <td><%= invoice.amount %></td>
+          <td><%= invoice.comment %></td>
+          <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+          <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table><br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>TOTAL EXPENSES:</th>
+      <% sum_expenses = 0 %>
+      <td><% @invoices.each do |invoice| %>
+            <% sum_expenses += invoice.amount %>
+          <% end %>
+          <%= sum_expenses.round(2) %>
+      </td>
+    </tr>
+    <tr>
+      <th>TOTAL CREDITS:</th>
+      <td></td>
+    </tr>
+    </thead>
+</table>
+
+<br>
+
+<%= link_to 'New Invoice', new_invoice_path %>

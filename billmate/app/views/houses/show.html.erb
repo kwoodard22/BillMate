@@ -1,19 +1,47 @@
 <h1><%= @house.name %> Profile</h1>
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p><br>
 
 <p>
   <strong>House Name:</strong>
   <%= @house.name %>
-</p>
+</p><br><br>
 
-<p>
-  <strong>Roommates:</strong>
+<h3>Roommates:</h3>
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Email</strong></td>
+  </tr>
   <% @house.roommates.each do |roommate| %>
-    <%= roommate.name %>
-    <%= roommate.email %>
+  <tr> 
+    <td><%= roommate.name %></td>
+    <td><%= roommate.email %></td>
+  </tr>
   <% end %>
-</p>
+</table><br><br>
 
+
+<h3>Expense Categories:</h3>
+<table>
+  <tr>
+    <td><strong>Expense Category</strong></td>
+    <td><strong>Account Number</strong></td>
+    <td><strong>Phone Number</strong></td>
+    <td><strong>Utility</strong></td>
+    <td><strong>Autopay</strong></td>
+    <td><strong>Comments</strong></td>
+  </tr>
+  <% @house.expense_categories.each do |expense_category| %>
+  <tr> 
+    <td><%= expense_category.name %></td>
+    <td><%= expense_category.account_number %></td>
+    <td><%= expense_category.phone %></td>
+    <td><%= expense_category.utility %></td>
+    <td><%= expense_category.autopay %></td>
+    <td><%= expense_category.comments %></td>
+  </tr>
+  <% end %>
+</table><br><br><br>
 
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Dashboard', root_path %>

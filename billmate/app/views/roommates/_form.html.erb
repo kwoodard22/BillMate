@@ -1,0 +1,26 @@
+<%= form_for(@roommate) do |f| %>
+  <% if @roommate.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@roommate.errors.count, "error") %> prohibited this roommate from being saved:</h2>
+      <ul>
+        <% @roommate.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Name</h3>
+  <div class="field">
+    <%= f.text_field :name %><br><br>
+  </div>
+
+  <h3>Email</h3>
+  <div class="field">
+    <%= f.text_field :email %><br><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
