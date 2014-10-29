@@ -16,24 +16,20 @@
     <%= f.date_select :date_paid %>
   </div>
   <div class="field">
-    <%= f.label :expense_category_id %><br>
-    <%= f.number_field :expense_category_id %>
+    <%= f.label :expense_category_id, "Select Expense Category" %><br>
+    <%= f.collection_select :expense_category_id, ExpenseCategory.order(:name).uniq, :id, :name, include_blank: false  %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :paid_by %><br>
-    <%= f.text_field :paid_by %>
+    <%= f.text_field :amount, value: 0.0 %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_field :comment %>
   </div>
   <div class="field">
-    <%= f.label :month %><br>
-    <%= f.date_select :month %>
+    <%= f.label :invoice_period, "Invoice Period" %><br>
+    <%= f.date_select :invoice_period %>
   </div>
   <div class="actions">
     <%= f.submit %>

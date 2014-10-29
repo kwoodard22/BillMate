@@ -4,16 +4,13 @@ class InvoicesController < ApplicationController
   
   def index
     @invoices = Invoice.all
-    respond_with(@invoices)
   end
 
   def show
-    respond_with(@invoice)
   end
 
   def new
     @invoice = Invoice.new
-    respond_with(@invoice)
   end
 
   def edit
@@ -21,18 +18,24 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
-    @invoice.save
-    respond_with(@invoice)
+    if @invoice.save
+      redirect_to invoices_path, notice: "Invoice was successfully updated."
+    else
+      render :new
+    end
   end
 
   def update
-    @invoice.update(invoice_params)
-    respond_with(@invoice)
+    @invoice = Invoice.find(params[:id])
+    if @invoice.update(invoice_params)
+      redirect_to invoices_path, notice: "Invoice was successfully updated."
+    else
+      render :edit
+    end
   end
 
   def destroy
     @invoice.destroy
-    respond_with(@invoice)
   end
 
   private
@@ -41,6 +44,6 @@ class InvoicesController < ApplicationController
     end
 
     def invoice_params
-      params.require(:invoice).permit(:date_paid, :expense_category_id, :amount, :paid_by, :comment, :month)
+      params.require(:invoice).permit(:date_paid, :expense_category_id, :amount, :comment, :invoice_period)
     end
 end

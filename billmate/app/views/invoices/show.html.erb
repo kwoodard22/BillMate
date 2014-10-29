@@ -16,18 +16,13 @@
 </p>
 
 <p>
-  <strong>Paid by:</strong>
-  <%= @invoice.paid_by %>
-</p>
-
-<p>
   <strong>Comment:</strong>
   <%= @invoice.comment %>
 </p>
 
 <p>
-  <strong>Month:</strong>
-  <%= @invoice.month %>
+  <strong>Invoice Period:</strong>
+  <%= @invoice.invoice_period %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
