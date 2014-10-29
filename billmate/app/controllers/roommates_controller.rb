@@ -14,7 +14,12 @@ class RoommatesController < ApplicationController
 
     respond_to do |format|
       if @roommate.save
-        format.html { redirect_to new_expense_category_path, notice: 'Roommates profile was successfully created.' }
+        format.html {  
+          if cookies.permanent[:first_time] = 1 
+            redirect_to new_expense_category_path
+          else 
+            redirect_to edit_house_path(current_user.house)
+          end }
       else
         format.html { render :new, notice: 'Creating roommates profile failed.' }
       end
@@ -30,8 +35,9 @@ class RoommatesController < ApplicationController
   end
 
   def update
+    @roommate = Roommate.find(params[:id])
     if @roommate.update(roommate_params)
-      redirect_to @roommate, notice: "Roommate profile was successfully updated."
+      redirect_to edit_house_path(current_user.house), notice: "Roommate profile was successfully updated."
     else
       render :edit
     end
