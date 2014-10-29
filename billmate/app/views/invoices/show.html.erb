@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @invoice.date_paid %>
+</p>
+
+<p>
+  <strong>Expense category:</strong>
+  <%= @invoice.expense_category_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @invoice.amount %>
+</p>
+
+<p>
+  <strong>Paid by:</strong>
+  <%= @invoice.paid_by %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @invoice.comment %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @invoice.month %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
