@@ -37,11 +37,16 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+<<<<<<< HEAD
 gem 'pry-rails', group: [:development]
+=======
+
+>>>>>>> a2096556dd571b3e7fed6028345f0f4c1688cd65
 
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
