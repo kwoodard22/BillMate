@@ -44,6 +44,7 @@ class InvoicesController < ApplicationController
     end
 
     def invoice_params
-      params.require(:invoice).permit(:date_paid, :expense_category_id, :amount, :comment, :invoice_period)
+      params.require(:invoice).permit(:date_paid, :expense_category_id, :amount, :comment, :invoice_period,
+        payments_attributes: [:id, :invoice_id, :roommate_id])
     end
 end

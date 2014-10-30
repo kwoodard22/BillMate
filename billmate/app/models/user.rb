@@ -8,5 +8,11 @@ class User < ActiveRecord::Base
   # validates :email, uniqueness: true
   # has_many :roommates, through: :house
   
-  
+  # def self.this_month_invoices
+  #   house.expense_categoru.invoices.each do |invoice|
+  #     if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y")
+  #       @month_invoices << invoice
+  #     end
+  #   end
+  # end
 end
