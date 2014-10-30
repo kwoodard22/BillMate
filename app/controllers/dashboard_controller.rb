@@ -1,4 +1,3 @@
-require 'pry'
 class DashboardController < ApplicationController
 
   def index
