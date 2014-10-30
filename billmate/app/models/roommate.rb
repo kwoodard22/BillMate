@@ -1,5 +1,7 @@
 class Roommate < ActiveRecord::Base
   belongs_to :house, inverse_of: :roommates
+  has_many :payments
+  has_many :invoices, through: :payments
   # has_many :roommates, through: :house
   # validates_presence_of :house_id
   # Use inverse_of & validates_presence_of if you want to
