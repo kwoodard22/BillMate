@@ -84,4 +84,6 @@ Rails.application.configure do
     password:             ENV["GMAIL_PASSWORD"],
     authentication:       'plain',
     enable_starttls_auto: true  }
+
+  config.serve_static_assets
 end
