@@ -1,19 +1,32 @@
-<h1><% if current_user.house %>
-      <%= current_user.house.name %> Dashboard
-    <% else %>
-      Dashboard
-    <% end %>
-</h1>
+<div class="dashboard">
+  <div class="container_centered">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1><% if current_user.house %>
+              <%= current_user.house.name %> Dashboard
+            <% else %>
+               Dashboard
+            <% end %>
+        </h1>
+      </div>
+    </div>
+  </div>
 
-<div class="options">
-  <ul>
-    <li><% if current_user.house %>
-          <%= link_to 'House Profile', house_path(current_user.house.id) %>
-        <% else %>
-          <%= link_to 'Create House Profile', new_house_path %>
-        <% end %>
-    </li>
-    <li><%= link_to 'Expenses This Period', invoices_path %></li>
-    <li>Past Expenses</li>
-  </ul>
+
+  <div class="container_dashboard">
+    <div class="row">
+      <div class="col-xs-4 col-md-offset-4">
+        <ul>
+          <li><% if current_user.house %>
+                <%= link_to 'House Profile', house_path(current_user.house.id) %>
+              <% else %>
+                <%= link_to 'Create House Profile', new_house_path %>
+              <% end %>
+          </li>
+          <li><%= link_to 'Expenses This Period', invoices_path %></li>
+          <li>Past Expenses</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
