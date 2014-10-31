@@ -1,7 +1,7 @@
+<div class="container">
 <h1>Invoices for <%= Date.today.strftime("%B %Y") %></h1>
 
-<table class="table">
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Date paid</th>
@@ -14,26 +14,35 @@
     </thead>
 
     <tbody>
-      <% @invoices.each do |invoice| %>
-        <% if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y") %>
-          <tr>
-            <td><%= invoice.date_paid.strftime("%B %d, %Y") %></td>
-            <td><%= invoice.expense_category.name %></td>
-            <td><%= invoice.amount %></td>
 
-            <td><%= invoice.comment %></td>
-            <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-            <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <div class="alert">
+      <% if @invoices.empty? %>
+          <h4>
+            You have not entered any invoices for this month.
+          </h4>
+        </div>
+      <% else%>
+        <% @invoices.each do |invoice| %>
+          <% if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y") %>
+            <tr>
+              <td><%= invoice.date_paid.strftime("%B %d, %Y") %></td>
+              <td><%= invoice.expense_category.name %></td>
+              <td><%= invoice.amount %></td>
+
+              <td><%= invoice.comment %></td>
+              <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+              <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>
   </table>
-</div><br><br>
-<%= link_to 'New Invoice', new_invoice_path %><br><br>
+<br><br>
+<button type="button" class="btn btn-default btn-lg active"><%= link_to 'New Invoice', new_invoice_path %></button><br><br>
 
 <h2>Summary</h2>
-<table>
+<table class="table">
   <body>
     <tr>
       <td>TOTAL EXPENSES:</td>
@@ -47,11 +56,12 @@
     </tr>
     <tr>
       <td><strong>OWED PER PERSON:</strong></td>
-      <td>$ <%= ( sum_expenses.round(2) / 4).round(2) %></td>
+      <td><strong><font color="red" size="6">$ <%= ( sum_expenses.round(2) / current_user.house.roommates.count).round(2) %></font></strong></td>
     </tr>
     </body>
 </table>
+</div>
+</div>
 
-<br>
 
 

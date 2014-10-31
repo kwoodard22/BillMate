@@ -1,20 +1,27 @@
 Rails.application.routes.draw do
-  
+
   resources :payments
 
   resources :invoices
 
   resources :expense_categories
 
-  root 'dashboard#index'
-  
+  # root 'dashboard#index'
+
   resources :houses
 
   resources :roommates
 
   devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'dashboard#index'
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
 
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
