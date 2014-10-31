@@ -48,19 +48,25 @@ ul {
 }
 .container_dashboard {
   width: 100%;
+  min-height: 100%;
   margin-top: 50%;
   border-radius: 15px;
   text-align: left;
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.7);;
+  background-color: rgba(0, 0, 0, 0.7);
+  
   li {
     font-size: 20px;
     color: white;
     text-decoration: none;
+
   }
 }
 
-
+.mainText {
+    min-height: 300px;
+    
+  }
 .alert {
   color: red;
 }
