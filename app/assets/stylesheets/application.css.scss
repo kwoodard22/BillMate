@@ -46,26 +46,27 @@ ul {
 #header {
   margin-bottom: 0;
 }
-.container_dashboard {
+.containerdashboard {
   width: 100%;
   min-height: 100%;
-  margin-top: 50%;
+  margin-top: 40%;
   border-radius: 15px;
   text-align: left;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0.7);
   
   li {
-    font-size: 20px;
+    padding-top: 30px;
+    font-size: 30px;
     color: white;
     text-decoration: none;
-
+    line-height: 50px;
   }
 }
 
 .mainText {
     min-height: 300px;
-    
+
   }
 .alert {
   color: red;
@@ -75,7 +76,7 @@ ul {
   @extend .container; 
   min-width: 100%;
   min-height: 100%;
-  background-image: image-url("strategy_gradient.jpg");
+  background-image: image-url("strategygradient.jpg");
   background-size: cover;
   a {
   color: white;
