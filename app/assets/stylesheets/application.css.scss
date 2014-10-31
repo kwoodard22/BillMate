@@ -13,7 +13,50 @@
  *= require_tree .
  *= require_self
  */
-
+@import "bootstrap";
+html,
+body {
+  height: 100%;
+}
 ul {
     list-style-type: none;
 }
+
+.signup_box {
+  margin-top: 120px;
+}
+
+.welcome {
+  font-size: 70px;
+  color: #009bb6;
+}
+
+.signin_signup {
+  @extend .container;
+  text-align: center;
+}
+
+.container_centered {
+  text-align: center;
+  img {
+    height: 450px;
+  }
+}
+
+#header {
+  margin-bottom: 0;
+}
+.container_dashboard {
+  text-align: left;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.dashboard {
+  @extend .container;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: image-url("strategy.jpg");
+  background-size: cover;
+}
+
