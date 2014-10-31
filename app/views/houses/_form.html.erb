@@ -1,23 +1,23 @@
-<%= form_for(@house) do |f| %>
-  <% if @house.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
-      <ul>
-        <% @house.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <%= form_for(@house) do |f| %>
+      <% if @house.errors.any? %>
+        <div class="error_messages">
+          <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+          <ul>
+            <% @house.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+    <h3>House Name</h3>
+    <div class="field">
+      <%= f.text_field :name %><br><br>
     </div>
+
+    <%= f.submit "Save" %>
   <% end %>
 
-  <h3>House Name</h3>
-  <div class="field">
-    <%= f.text_field :name %><br><br>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Save" %>
-  </div>
-<% end %>
 
 

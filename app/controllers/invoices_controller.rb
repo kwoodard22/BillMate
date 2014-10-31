@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   respond_to(:html, :json)
   
   def index
-    @invoices = Invoice.all
+    @invoices = current_user.house.invoices
   end
 
   def show

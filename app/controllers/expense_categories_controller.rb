@@ -2,7 +2,7 @@ class ExpenseCategoriesController < ApplicationController
   before_action :set_expense_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @expense_categories = ExpenseCategory.all
+    @expense_categories = current_user.house.expense_categories
   end
 
   def show
@@ -30,7 +30,12 @@ class ExpenseCategoriesController < ApplicationController
   end
 
   def update
-    @expense_category.update(expense_category_params)
+    @expense_category = ExpenseCategory.find(params[:id])
+    if @expense_category.update(expense_category_params)
+      redirect_to edit_house_path(current_user.house.id), notice: "Successfully updated expense category."
+    else
+      render :edit
+    end
   end
 
   def destroy

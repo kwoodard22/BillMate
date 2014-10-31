@@ -14,12 +14,8 @@ class RoommatesController < ApplicationController
 
     respond_to do |format|
       if @roommate.save
-        format.html {  
-          if cookies.permanent[:first_time] = 1 
-            redirect_to new_expense_category_path
-          else 
-            redirect_to edit_house_path(current_user.house)
-          end }
+        format.html {
+            redirect_to edit_house_path(current_user.house) }
       else
         format.html { render :new, notice: 'Creating roommates profile failed.' }
       end

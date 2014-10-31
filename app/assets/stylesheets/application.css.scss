@@ -47,16 +47,39 @@ ul {
   margin-bottom: 0;
 }
 .container_dashboard {
+  width: 100%;
+  margin-top: 50%;
+  border-radius: 15px;
   text-align: left;
-  padding: 20px;
-  font-size: 30px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.7);;
+  li {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+.alert {
+  color: red;
 }
 
 .dashboard {
-  @extend .container;
+  @extend .container; 
   min-width: 100%;
   min-height: 100%;
-  background-image: image-url("strategy.jpg");
+  background-image: image-url("strategy_gradient.jpg");
   background-size: cover;
+  a {
+  color: white;
+  text-decoration: none; /* no underline */
 }
+  h1 {
+    font-size: 75px;
+    font-weight: bold;
+    text-shadow: 2px 2px #ffffff;
+  }
+}
+
 
