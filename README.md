@@ -1,5 +1,7 @@
 BillMate (WDI Project 1)
 
+Heroku site: https://infinite-lowlands-6616.herokuapp.com/
+
 BillMate is an application to calculate house members' monthly expenses. A user creates a house profile and enters the roommates' names and email addresses. Every month, house expenses (i.e. utilities, supplies, fines, etc.) can be recorded along with who paid each expense. BillMate will run the numbers to determine who owes what, and then will generate an email to all the roommates.
 
 For the next phase of the project, my wishlist includes:
