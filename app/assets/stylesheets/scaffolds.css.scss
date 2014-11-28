@@ -1,9 +1,26 @@
+.signin_signup h1 {
+  color: #4682B4;
+  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  background-color: white;
+  opacity: .9;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+
+}
+
 body {
+  background: image-url("sf_homes.jpg") no-repeat fixed;
+  background-size: cover;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  height: 100vh;
 }
 
 p, ol, ul, td {
