@@ -1,7 +1,7 @@
 <div class="dashboard">
   <div class="container_centered">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <h1><% if current_user.house %>
               <%= current_user.house.name %> Dashboard
             <% else %>
@@ -19,7 +19,7 @@
         <ul class="mainText">
           <li><%= link_to 'Expenses This Period', invoices_path %></li>
           <li><% if current_user.house %>
-                <%= link_to 'House Profile', house_path(current_user.house.id) %>
+                <%= link_to 'House Profile', edit_house_path(current_user.house.id) %>
               <% else %>
                 <%= link_to 'Create House Profile', new_house_path %>
               <% end %>
