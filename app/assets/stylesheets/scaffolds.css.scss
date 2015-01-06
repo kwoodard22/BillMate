@@ -6,14 +6,24 @@
   opacity: .9;
 }
 
-.row {
-  height: 100%;
-  width: 100%;
-
+.signin_signup {
+  text-align: center;
 }
 
+.signup-text {
+  padding-top: 95px;
+  padding-left: 35px;
+}
+
+
+.signup-box {
+  background: image-url("sign_up.jpg") no-repeat;
+  padding: 15px 0 15px 0;
+}
+
+
+
 body {
-  background: image-url("sf_homes.jpg") no-repeat fixed;
   background-size: cover;
   background-color: #fff;
   color: #333;

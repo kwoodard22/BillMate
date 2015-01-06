@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "bootstrap";
+
 html,
 body {
   height: 100%;
@@ -37,10 +38,6 @@ ul {
   color: #009bb6;
 }
 
-.signin_signup {
-  @extend .container;
-  text-align: center;
-}
 
 .container_centered {
   text-align: center;
@@ -55,9 +52,7 @@ ul {
 }
 
 .container_dashboard {
-  width: 100%;
-  min-height: 100%;
-  margin-top: 40%;
+  margin-top: 7%;
   border-radius: 15px;
   text-align: left;
   padding: 5px;
