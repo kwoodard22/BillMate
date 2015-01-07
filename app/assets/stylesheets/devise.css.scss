@@ -1,0 +1,38 @@
+body.landing {
+  background: image-url("sf_homes.jpg") no-repeat;
+  background-size: cover;
+}
+
+.signin_signup h1 {
+  color: #4682B4;
+  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+}
+
+.signin_signup {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+.signup-box {
+  background: image-url("sign_up.jpg") no-repeat;
+  padding: 15px 0 15px 0;
+  margin-top: 25px;
+  margin-left: 5%;
+}
+
+.signin-box {
+  background: image-url("sign_in.jpg") no-repeat;
+  padding: 15px 0 15px 0;
+  margin-top: 4.5%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+
+.signup-text {
+  padding-top: 13%;
+  padding-left: 35px;
+}

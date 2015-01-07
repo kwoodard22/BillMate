@@ -29,10 +29,6 @@ ul {
   letter-spacing: .12em;
 }
 
-.signup_box {
-  margin-top: 120px;
-}
-
 .welcome {
   font-size: 70px;
   color: #009bb6;
@@ -72,8 +68,6 @@ ul {
   @extend .container; 
   min-width: 100%;
   min-height: 100%;
-  background-image: image-url("strategygradient.jpg");
-  background-size: cover;
   a {
   color: white;
   text-decoration: none; /* no underline */
