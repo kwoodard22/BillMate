@@ -1,6 +1,5 @@
 <div class="container">
-<h1>Invoices for <%= Date.today.strftime("%B %Y") %></h1>
-
+  <h1>Invoices for <%= Date.today.strftime("%B %Y") %></h1>
   <table class="table">
     <thead>
       <tr>
@@ -11,55 +10,47 @@
         <th colspan="3"></th>
       </tr>
     </thead>
-
     <tbody>
-
       <div class="alert">
-      <% if @invoices.empty? %>
-          <h4>
-            You have not entered any invoices for this month.
-          </h4>
-        </div>
+        <% if @invoices.empty? %>
+        <h4>
+        You have not entered any invoices for this month.
+        </h4>
+      </div>
       <% else%>
-        <% @invoices.each do |invoice| %>
-          <% if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y") %>
-            <tr>
-              <td><%= invoice.date_paid.strftime("%B %d, %Y") %></td>
-              <td><%= invoice.expense_category.name %></td>
-              <td><%= invoice.amount %></td>
-              <td><%= invoice.comment %></td>
-              <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-              <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        <% end %>
+      <% @invoices.each do |invoice| %>
+      <% if invoice.invoice_period.strftime("%B %Y") == Date.today.strftime("%B %Y") %>
+      <tr>
+        <td><%= invoice.date_paid.strftime("%B %d, %Y") %></td>
+        <td><%= invoice.expense_category.name %></td>
+        <td><%= invoice.amount %></td>
+        <td><%= invoice.comment %></td>
+        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+        <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+      <% end %>
       <% end %>
     </tbody>
   </table>
-<br><br>
-<button type="button" class="btn btn-default btn-lg active"><%= link_to 'New Invoice', new_invoice_path %></button><br><br>
+  <button type="button" class="btn btn-success"><%= link_to 'NEW INVOICE', new_invoice_path %></button>
 
-<h2>Summary</h2>
-<table class="table">
-  <body>
+  <h2>Summary</h2>
+  <table class="table">
     <tr>
       <td>TOTAL EXPENSES:</td>
       <% sum_expenses = 0 %>
       <% limit_to_current_month %>
       <td>  $ <% @month_invoices.each do |invoice| %>
-            <% sum_expenses += invoice.amount %>
-          <% end %>
-          <%= sum_expenses.round(2) %>
+        <% sum_expenses += invoice.amount %>
+        <% end %>
+        <%= sum_expenses.round(2) %>
       </td>
     </tr>
     <tr>
       <td><strong>OWED PER PERSON:</strong></td>
       <td><strong><font color="red" size="6">$ <%= ( sum_expenses.round(2) / current_user.house.roommates.count).round(2) %></font></strong></td>
     </tr>
-    </body>
-</table>
+  </table>
+  <button type="button" class="btn btn-default btn-lg active"><%= link_to 'Back', house_path(current_user.house) %></button>
 </div>
-</div>
-
-
-

@@ -1,7 +1,10 @@
 <div class="container">
   <h1><%= current_user.house.name %> Profile</h1>
+</div>
+
+<div class="container roommates">
   <h3>Roommates:</h3>
-  <div class="roommates">
+
     <table class="table table-bordered">
       <tr>
         <th>Name</th>
@@ -20,8 +23,10 @@
       </tr>
       <% end %>
     </table>
-  </div>
+
   <button type="button" class="btn btn-success"><%= link_to 'ADD ROOMMATE', new_roommate_path %></button>
+</div>
+<div class="container table-general">
   <h3>Expense Categories:</h3>
   <div class="table-general">
     <table class="table table-bordered">
@@ -38,8 +43,16 @@
         <td><%= expense_category.name %></td>
         <td><%= expense_category.account_number %></td>
         <td><%= expense_category.phone %></td>
-        <td><%= expense_category.utility %></td>
-        <td><%= expense_category.autopay %></td>
+        <% if expense_category.utility == true %>
+          <td><%= "X" %></td>
+        <% else %>
+          <td><%= "" %></td>
+        <% end %>
+        <% if expense_category.autopay == true %>
+          <td><%= "X" %></td>
+        <% else %>
+          <td><%= "" %></td>
+        <% end %>
         <td><%= expense_category.comments %></td>
         <td><%= link_to 'Edit', edit_expense_category_path(expense_category.id) %></td>
         <td><%= link_to 'Delete', expense_category_path(expense_category.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -50,6 +63,5 @@
   <button type="button" class="btn btn-success"><%= link_to 'ADD EXPENSE CATEGORY', new_expense_category_path %></button>
   <div class="buttons">
     <button type="button" class="btn btn-default btn-lg active"><%= link_to 'Dashboard', root_path %></button>
-    <button type="button" class="btn btn-default btn-lg active"><%= link_to 'Back', house_path(current_user.house) %></button>
   </div>
 </div>
