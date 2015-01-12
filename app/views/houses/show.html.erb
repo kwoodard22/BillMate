@@ -10,7 +10,7 @@
       <td><strong>Email</strong></td>
     </tr>
     <tr>
-      <td>CURRENT USER NAME</td>
+      <td><%= current_user.name %></td>
       <td><%= current_user.email %></td>
     </tr>
     <% @house.roommates.each do |roommate| %>
@@ -40,7 +40,7 @@
       <td><%= expense_category.account_number %></td>
       <td><%= expense_category.phone %></td>
       <% if expense_category.utility == true %>
-        <td><strong><%= "X" %></strong></td>
+        <td><%= "X" %></td>
       <% else %>
         <td><%= "" %></td>
       <% end %>
