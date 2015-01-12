@@ -3,10 +3,15 @@
   <p id="notice"><%= notice %></p><br>
 
   <h3>Roommates:</h3>
+  <div class="roommates">
   <table class="table table-bordered">
     <tr>
       <td><strong>Name</strong></td>
       <td><strong>Email</strong></td>
+    </tr>
+    <tr>
+      <td><%= current_user.name %></td>
+      <td><%= current_user.email %></td>
     </tr>
     <% @house.roommates.each do |roommate| %>
     <tr> 
@@ -14,10 +19,12 @@
       <td><%= roommate.email %></td>
     </tr>
     <% end %>
-  </table><br><br>
+  </table>
+  </div>
 
 
   <h3>Expense Categories:</h3>
+  <div class="table-general">
   <table class="table table-bordered">
     <tr>
       <td><strong>Expense Category</strong></td>
@@ -32,12 +39,17 @@
       <td><%= expense_category.name %></td>
       <td><%= expense_category.account_number %></td>
       <td><%= expense_category.phone %></td>
-      <td><%= expense_category.utility %></td>
-      <td><%= expense_category.autopay %></td>
+      <% if expense_category.utility == true %>
+        <td><%= "X" %></td>
+      <% else %>
+        <td><%= "" %></td>
+      <% end %>
+      <td><%= expense_category.autopay == true ? "X" : "" %></td>
       <td><%= expense_category.comments %></td>
     </tr>
     <% end %>
-  </table><br><br><br>
+  </table>
+</div>
 
   <button type="button" class="btn btn-default btn-lg active">
     <%= link_to 'Dashboard', root_path %>

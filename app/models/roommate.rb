@@ -1,4 +1,7 @@
 class Roommate < ActiveRecord::Base
+  validates :name, presence: true
+  validates :email, presence: true
+  
   belongs_to :house, inverse_of: :roommates
   has_many :payments
   has_many :invoices, through: :payments

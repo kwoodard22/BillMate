@@ -1,5 +1,10 @@
-<h1>Editing roommate</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', edit_house_path(current_user.house) %>
+<div class="container text-center">
+  <h1>Edit Roommate</h1>
+</div>
+<div class="container text-center">
+  <%= render 'form' %>
+  <button type="button" class="btn btn-default btn-sm active"><%= link_to 'Back', edit_house_path(current_user.house) %></button>
+</div>
+<div class="container text-center">
+  <%= image_tag 'friends.jpg' %>
+</div>
