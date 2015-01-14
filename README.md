@@ -4,12 +4,19 @@ BillMate (WDI First Project)
 Heroku site: https://billmate.herokuapp.com/
 ------------
 
-BillMate is an application to calculate house members' monthly expenses. A user creates a house profile and enters the roommates' names. Monthly house expenses (i.e. utilities, supplies, fines, etc.) can be recorded, and BillMate will run the numbers to determine who owes what.
+BillMate is an application to calculate house members' monthly expenses. A user creates a house profile and enters the roommates' names. Monthly house expenses (i.e. utilities, supplies, fines, etc.) can be recorded, and BillMate will divide the house expenses amongst the roommates.
 
-Technologies:
+**Time building app:** 1 week
+
+**Client:** My first project for General Assembly's Web Development Immersive course
+
+**Technologies:**
 - Ruby
 - Ruby on Rails
 - Devise Gem
+- Bootstrap
+
+**Biggest Challenge:** Drawing up the relations beforehand and better familiarizing myself with routes and user access.
 
 Going forward with this project, I intend to add the following features so that this app can become even more useful to myself and other "group house accountants."
 
